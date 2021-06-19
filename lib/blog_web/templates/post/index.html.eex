@@ -8,7 +8,7 @@
 
         <a href="#!" class="red-text secondary-content"><i class="material-icons">delete</i></a>
         <a href="#!" class="blue-text secondary-content"><i class="material-icons">edit</i></a>
-        <%= link to: Routes.post_path(@conn, :show, post.id), class: "green-text secondary-content" do %>
+        <%= link to: Routes.post_path(@conn, :show, post), class: "green-text secondary-content" do %>
           <i class="material-icons">send</i>
         <% end %>
       </div>
