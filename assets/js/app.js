@@ -16,4 +16,5 @@ import "phoenix_html"
 
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.fixed-action-btn');
+  M.updateTextFields();
 });

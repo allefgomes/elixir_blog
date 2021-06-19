@@ -15,4 +15,25 @@ defmodule BlogWeb.PostController do
 
     render(conn, "show.html", post: post)
   end
+
+  def new(conn, _params) do
+    changeset = Post.changeset(%Post{})
+
+    conn
+    |> render("new.html", changeset: changeset)
+  end
+
+  def create(conn, %{ "post" => post }) do
+    post = Post.changeset(%Post{}, post)
+    |> Repo.insert()
+
+    case post do
+      {:ok, post} ->
+        conn
+        |> put_flash(:info, "Post was created sucessfully!")
+        |> redirect(to: Routes.post_path(conn, :show, post))
+      {:error, changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
+  end
 end

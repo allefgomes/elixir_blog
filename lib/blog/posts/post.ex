@@ -9,7 +9,7 @@ defmodule Blog.Posts.Post do
     timestamps()
   end
 
-  def changeset(post, attrs) do
+  def changeset(post, attrs \\ %{}) do
     post
     |> cast(attrs, [:title, :description])
     |> validate_required([:title, :description])

@@ -17,7 +17,7 @@
 </ul>
 
 <div class="fixed-action-btn">
-  <a class="btn-floating btn-large blue">
+  <%= link to: Routes.post_path(@conn, :new), class: "btn-floating btn-large blue" do %>
     <i class="large material-icons">add</i>
-  </a>
+  <% end %>
 </div>
