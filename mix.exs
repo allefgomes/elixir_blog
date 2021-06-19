@@ -1,6 +1,8 @@
 defmodule Blog.MixProject do
   use Mix.Project
 
+  @github_url "https://github.com/allefgomes/elixir_blog"
+
   def project do
     [
       app: :blog,
@@ -11,6 +13,21 @@ defmodule Blog.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
+      description: "Project to learn phoenix concepts",
+      source_url: @github_url,
+      homepage_url: @github_url,
+      files: ~w[mix.exs lib LICENSE.md README.md CHANGELOG.md],
+      package: [
+        maintainers: ["Allef Gomes"],
+        licenses: ["MIT"],
+        links: %{
+          "GitHub" => @github_url
+        }
+      ],
+      docs: [
+        main: "readme",
+        extras: ["README.md", "CHANGELOG.md"]
+      ],
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
         coveralls: :test,
