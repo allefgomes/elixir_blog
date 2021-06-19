@@ -1,6 +1,8 @@
 defmodule Blog.MixProject do
   use Mix.Project
 
+  @github_url "https://github.com/allefgomes/elixir_blog"
+
   def project do
     [
       app: :blog,
@@ -10,7 +12,29 @@ defmodule Blog.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      description: "Project to learn phoenix concepts",
+      source_url: @github_url,
+      homepage_url: @github_url,
+      files: ~w[mix.exs lib LICENSE.md README.md CHANGELOG.md],
+      package: [
+        maintainers: ["Allef Gomes"],
+        licenses: ["MIT"],
+        links: %{
+          "GitHub" => @github_url
+        }
+      ],
+      docs: [
+        main: "readme",
+        extras: ["README.md", "CHANGELOG.md"]
+      ],
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -44,7 +68,10 @@ defmodule Blog.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:sobelow, "~> 0.8", only: [:dev, :test]},
+      {:excoveralls, "~> 0.10", only: [:dev, :test]}
     ]
   end
 
