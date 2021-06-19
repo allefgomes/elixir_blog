@@ -70,7 +70,7 @@ defmodule Blog.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:sobelow, "~> 0.8", only: :dev},
+      {:sobelow, "~> 0.8", only: [:dev, :test]},
       {:excoveralls, "~> 0.10", only: [:dev, :test]}
     ]
   end
