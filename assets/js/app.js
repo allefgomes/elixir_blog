@@ -13,3 +13,7 @@ import "../node_modules/materialize-css/dist/js/materialize"
 //     import socket from "./socket"
 //
 import "phoenix_html"
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.fixed-action-btn');
+});
