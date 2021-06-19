@@ -2,6 +2,9 @@ name: GithubActions Pipeline CI
 
 on: pull_request
 
+env:
+  MIX_ENV: test
+
 jobs: 
   lint:
     runs-on: ubuntu-latest
@@ -78,12 +81,6 @@ jobs:
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: tests
-        run: mix test
-        env:
-          DB_PASSWORD: postgres
-          DB_HOST: postgres
-
     services:
       db:
         image: postgres:12
