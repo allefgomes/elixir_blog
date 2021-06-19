@@ -79,9 +79,6 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: tests
-        run: mix deps.get
-        run: mix deps.compile
-        run: cd assets && yarn install --frozen-lockfile
         run: mix test
         env:
           DB_PASSWORD: postgres
