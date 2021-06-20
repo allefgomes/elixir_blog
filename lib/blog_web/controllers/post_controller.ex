@@ -2,7 +2,7 @@ defmodule BlogWeb.PostController do
   use BlogWeb, :controller
 
   alias Blog.Repo
-  alias Blog.Posts.Post
+  alias Blog.Post
 
   def index(conn, _params) do
     posts = Repo.all(Post)
@@ -17,17 +17,14 @@ defmodule BlogWeb.PostController do
   end
 
   def new(conn, _params) do
-    changeset = Post.changeset(%Post{})
+    changeset = Post.changeset(%{})
 
     conn
     |> render("new.html", changeset: changeset)
   end
 
   def create(conn, %{ "post" => post }) do
-    post = Post.changeset(%Post{}, post)
-    |> Repo.insert()
-
-    case post do
+    case Blog.create_post(post) do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post was created sucessfully!")

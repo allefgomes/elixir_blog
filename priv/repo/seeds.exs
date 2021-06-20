@@ -12,7 +12,7 @@
 
 defmodule Blog.DatabaseSeeder do
   alias Blog.Repo
-  alias Blog.Posts.Post
+  alias Blog.Post
 
   def insert_post(number) do
     post = Post.changeset(

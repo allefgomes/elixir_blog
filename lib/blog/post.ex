@@ -1,4 +1,4 @@
-defmodule Blog.Posts.Post do
+defmodule Blog.Post do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -9,9 +9,15 @@ defmodule Blog.Posts.Post do
     timestamps()
   end
 
-  def changeset(post, attrs \\ %{}) do
-    post
-    |> cast(attrs, [:title, :description])
+  def build(params) do
+    params
+    |> changeset()
+    |> apply_action(:insert)
+  end
+
+  def changeset(params) do
+    %__MODULE__{}
+    |> cast(params, [:title, :description])
     |> validate_required([:title, :description])
   end
 end
