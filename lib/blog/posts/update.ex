@@ -1,6 +1,5 @@
 defmodule Blog.Posts.Update do
   alias Blog.{Post, Repo}
-  alias Blog.Posts
 
   def call(id, post_params) do
     post = Repo.get(Post, id)
