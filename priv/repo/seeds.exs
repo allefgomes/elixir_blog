@@ -16,7 +16,6 @@ defmodule Blog.DatabaseSeeder do
 
   def insert_post(number) do
     post = Post.changeset(
-      %Post{},
       %{
         title: "Post #{number}",
         description: "#{number} - It is a long established fact that a reader will be distracted by the readable content of a(injected humour and the like)."
