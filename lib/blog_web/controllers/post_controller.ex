@@ -22,12 +22,13 @@ defmodule BlogWeb.PostController do
     |> render("new.html", changeset: changeset)
   end
 
-  def create(conn, %{ "post" => post }) do
+  def create(conn, %{"post" => post}) do
     case Blog.create_post(post) do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post was created sucessfully!")
         |> redirect(to: Routes.post_path(conn, :show, post))
+
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -41,7 +42,7 @@ defmodule BlogWeb.PostController do
     |> render("edit.html", post: post, changeset: changeset)
   end
 
-  def update(conn, %{ "id" => id, "post" => post }) do
+  def update(conn, %{"id" => id, "post" => post}) do
     IO.inspect(post)
 
     case Blog.update_post(id, post) do
@@ -49,12 +50,13 @@ defmodule BlogWeb.PostController do
         conn
         |> put_flash(:info, "Post was updated sucessfully!")
         |> redirect(to: Routes.post_path(conn, :show, post))
+
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
   end
 
-  def delete(conn, %{ "id" => id }) do
+  def delete(conn, %{"id" => id}) do
     Blog.delete_post(id)
 
     conn
