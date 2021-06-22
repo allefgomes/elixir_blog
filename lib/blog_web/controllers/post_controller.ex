@@ -32,4 +32,12 @@ defmodule BlogWeb.PostController do
         render(conn, "new.html", changeset: changeset)
     end
   end
+
+  def delete(conn, %{ "id" => id }) do
+    Blog.delete_post(id)
+
+    conn
+    |> put_flash(:info, "Post was created sucessfully!")
+    |> redirect(to: Routes.post_path(conn, :index))
+  end
 end
