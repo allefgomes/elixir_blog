@@ -1,7 +1,7 @@
 defmodule BlogWeb.PostController do
   use BlogWeb, :controller
 
-  alias Blog.{Post}
+  alias Blog.Post
 
   def index(conn, _params) do
     posts = Blog.list_posts()
@@ -43,8 +43,6 @@ defmodule BlogWeb.PostController do
   end
 
   def update(conn, %{"id" => id, "post" => post}) do
-    IO.inspect(post)
-
     case Blog.update_post(id, post) do
       {:ok, post} ->
         conn
