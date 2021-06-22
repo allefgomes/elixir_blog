@@ -1,11 +1,10 @@
 defmodule BlogWeb.PostController do
   use BlogWeb, :controller
 
-  alias Blog.Repo
-  alias Blog.Post
+  alias Blog.{Repo, Post}
 
   def index(conn, _params) do
-    posts = Repo.all(Post)
+    posts = Blog.list_posts()
 
     render(conn, "index.html", posts: posts)
   end
