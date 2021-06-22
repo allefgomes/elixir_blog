@@ -10,7 +10,7 @@ defmodule BlogWeb.PostController do
   end
 
   def show(conn, %{"id" => id}) do
-    post = Repo.get(Post, id)
+    post = Blog.get_post(id)
 
     render(conn, "show.html", post: post)
   end
