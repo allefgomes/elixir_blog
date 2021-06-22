@@ -15,8 +15,11 @@ defmodule Blog.Post do
     |> apply_action(:insert)
   end
 
-  def changeset(params) do
-    %__MODULE__{}
+  def changeset(params), do: create_changeset(%__MODULE__{}, params)
+  def changeset(post, params), do: create_changeset(post, params)
+
+  defp create_changeset(post_or_struct, params) do
+    post_or_struct
     |> cast(params, [:title, :description])
     |> validate_required([:title, :description])
   end
