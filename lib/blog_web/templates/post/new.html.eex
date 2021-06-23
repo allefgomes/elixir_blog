@@ -1,4 +1,4 @@
 <div class="row">
-  <h3>Criar Post</h3>
+  <h3>Create Post</h3>
   <%= render "form.html", Map.put(assigns, :action, Routes.post_path(@conn, :create)) %>
 </div>

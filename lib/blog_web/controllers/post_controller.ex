@@ -49,8 +49,8 @@ defmodule BlogWeb.PostController do
         |> put_flash(:info, "Post was updated sucessfully!")
         |> redirect(to: Routes.post_path(conn, :show, post))
 
-      {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+      {:error, changeset, post} ->
+        render(conn, "edit.html", changeset: changeset, post: post)
     end
   end
 
