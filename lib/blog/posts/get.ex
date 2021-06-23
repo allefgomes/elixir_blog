@@ -1,5 +1,5 @@
 defmodule Blog.Posts.Get do
-  alias Blog.{Repo, Post}
+  alias Blog.{Post, Repo}
 
   def call(id) do
     Repo.get(Post, id)
