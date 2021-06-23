@@ -63,10 +63,18 @@ defmodule BlogWeb.PostsControllerTest do
     end
   end
 
-  describe "delete post" do
+  describe "DELETE /posts/:id" do
     test "deletes chosen post", %{conn: conn} do
       {:ok, post} = Blog.create_post(@valid_post)
       conn = delete(conn, Routes.post_path(conn, :delete, post))
+      assert redirected_to(conn) == Routes.post_path(conn, :index)
+    end
+
+    test "redirect to index when deletes chosen post", %{conn: conn} do
+      {:ok, post} = Blog.create_post(@valid_post)
+      Blog.delete_post(post.id)
+
+      conn = get(conn, Routes.post_path(conn, :show, post))
       assert redirected_to(conn) == Routes.post_path(conn, :index)
     end
   end
