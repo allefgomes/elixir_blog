@@ -2,10 +2,11 @@ use Mix.Config
 
 # Configure your database
 config :blog, Blog.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("DB_USERNAME") || "pgdocker",
+  password: System.get_env("DB_PASSWORD") || "pgdocker",
   database: "blog_dev",
-  hostname: "database",
+  hostname: System.get_env("DB_HOST") || "localhost",
+  port: System.get_env("DB_PORT") || 5432,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

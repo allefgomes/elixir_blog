@@ -1,0 +1,4 @@
+<div class="row">
+  <h3>Edit Post</h3>
+  <%= render "form.html", Map.put(assigns, :action, Routes.post_path(@conn, :update, @post)) %>
+</div>

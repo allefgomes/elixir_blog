@@ -1,0 +1,27 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= label f, :title %>
+      <%= text_input f, :title, class: "validate" %>
+      <span class="helper-text" data-error="wrong" data-success="">
+        <%= error_tag f, :title %>
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= label f, :description %>
+      <%= textarea f, :description, class: "materialize-textarea" %>
+      <span class="helper-text" data-error="wrong" data-success="">
+        <%= error_tag f, :description %>
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <%= submit "Save", class: "waves-effect waves-light btn" %>
+    </div>
+  </div>
+<% end %>

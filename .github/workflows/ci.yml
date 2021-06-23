@@ -77,8 +77,6 @@ jobs:
           restore-keys: ${{ runner.os }}-mix-
       - name: deps
         run: mix deps.get
-      - name: test
-        run: mix test
       - name: coveralls
         run: mix coveralls.json
       - uses: codecov/codecov-action@v1
