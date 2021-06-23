@@ -1,7 +1,7 @@
 defmodule Blog.Posts.ListTest do
   use Blog.DataCase
 
-  @valid_post %{ title: "title", description: "description" }
+  @valid_post %{title: "title", description: "description"}
 
   test "list posts as an empty array" do
     assert Blog.list_posts() == []

@@ -1,9 +1,9 @@
 defmodule Blog.Posts.UpdateTest do
   use Blog.DataCase
 
-  @valid_post %{ title: "title", description: "description" }
-  @update_valid_post %{ title: "title updated", description: "description updated" }
-  @invalid_post %{ title: "", description: nil }
+  @valid_post %{title: "title", description: "description"}
+  @update_valid_post %{title: "title updated", description: "description updated"}
+  @invalid_post %{title: "", description: nil}
 
   test "update_post/2 -> success" do
     {:ok, post} = Blog.create_post(@valid_post)

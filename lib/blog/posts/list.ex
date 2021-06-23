@@ -1,5 +1,5 @@
 defmodule Blog.Posts.List do
-  alias Blog.{Repo, Post}
+  alias Blog.{Post, Repo}
 
   def call do
     Repo.all(Post)

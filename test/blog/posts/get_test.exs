@@ -1,7 +1,7 @@
 defmodule Blog.Posts.GetTest do
   use Blog.DataCase
 
-  @valid_post %{ title: "title", description: "description" }
+  @valid_post %{title: "title", description: "description"}
 
   test "get a post by id" do
     {:ok, post} = Blog.create_post(@valid_post)

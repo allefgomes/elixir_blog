@@ -1,8 +1,8 @@
 defmodule Blog.Posts.CreateTest do
   use Blog.DataCase
 
-  @valid_post %{ title: "title", description: "description" }
-  @invalid_post %{ title: "", description: nil }
+  @valid_post %{title: "title", description: "description"}
+  @invalid_post %{title: "", description: nil}
 
   test "create_post/1 -> success" do
     {:ok, post} = Blog.create_post(@valid_post)

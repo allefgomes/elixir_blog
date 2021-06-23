@@ -11,11 +11,13 @@ defmodule BlogWeb.PostController do
 
   def show(conn, %{"id" => id}) do
     post = Blog.get_post(id)
+
     case post do
       nil ->
         conn
         |> put_flash(:error, "Post not found")
         |> redirect(to: Routes.post_path(conn, :index))
+
       post ->
         render(conn, "show.html", post: post)
     end

@@ -1,7 +1,7 @@
 defmodule Blog.Posts.DeleteTest do
   use Blog.DataCase
 
-  @valid_post %{ title: "title", description: "description" }
+  @valid_post %{title: "title", description: "description"}
 
   test "delete_post/1 -> success" do
     {:ok, post} = Blog.create_post(@valid_post)
