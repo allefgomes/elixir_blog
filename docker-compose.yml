@@ -3,8 +3,8 @@ services:
   app:
     build: .
     container_name: blog_app
-    # command: /bin/sh entrypoint.sh
-    entrypoint: /bin/sh
+    command: /bin/sh entrypoint.sh
+    # entrypoint: /bin/sh
     volumes:
       - .:/app
     ports:
