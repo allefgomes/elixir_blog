@@ -58,7 +58,9 @@ const createSocket = (post_id) => {
   let channel = socket.channel(`comments:${post_id}`, {})
   channel.join()
     .receive("ok", resp => renderComments(resp.comments))
-    .receive("error", resp => { console.log("Unable to join", resp) })  
+    .receive("error", resp => { console.log("Unable to join", resp) });
+
+  channel.on(`comments:${post_id}:new`, addComment);
 
   document.getElementById("btn-submit-comment").addEventListener("click", () => {
     const content = document.getElementById("comment-content").value;
@@ -73,16 +75,22 @@ const createSocket = (post_id) => {
 }
 
 const renderComments = (comments) => {
-  const listCommentsHtml = comments.map(comment => {
-    return `<li class="collection-item avatar">
+  const listCommentsHtml = comments.map(comment => commentItem(comment))
+
+  document.querySelector(".list-comments").innerHTML = listCommentsHtml.join('');
+}
+
+const addComment = (event) => {
+  document.querySelector(".list-comments").innerHTML += commentItem(event.comment)
+}
+
+const commentItem = (comment) => (
+  `<li class="collection-item avatar">
       <i class="material-icons circle red">play_arrow</i>
       <span class="title">Title</span>
       <p>${comment.content}</p>
     </li>`
-  })
-
-  document.querySelector(".list-comments").innerHTML = listCommentsHtml.join('');
-}
+);
 
 window.createSocket = createSocket
 // Now that you are connected, you can join channels with a topic:
