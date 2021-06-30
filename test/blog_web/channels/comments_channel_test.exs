@@ -22,7 +22,7 @@ defmodule BlogWeb.CommentsChannelTest do
 
     ref = push(socket, "comment:add", %{"content" => "Comment 1"})
 
-    msg = %{ comment: %{ content: "Comment 1" } }
+    msg = %{comment: %{content: "Comment 1"}}
     assert_reply ref, :ok, %{}
 
     refute is_nil(msg)
