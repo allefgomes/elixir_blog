@@ -1,6 +1,6 @@
 FROM elixir:1.12.1-alpine
 
-RUN apk add --no-cache build-base npm git python3 inotify-tools
+RUN apk add --no-cache build-base npm git python3 inotify-tools bash
 
 WORKDIR /app
 
