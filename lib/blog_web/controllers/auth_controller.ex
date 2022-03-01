@@ -4,6 +4,12 @@ defmodule BlogWeb.AuthController do
 
   alias Blog.Accounts
 
+  def logout(conn, _params) do
+    conn
+    |> configure_session(drop: true)
+    |> redirect(to: Routes.page_path(conn, :index))
+  end
+
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, %{"provider" => provider}) do
     user_params = %{
       token: auth.credentials.token,
