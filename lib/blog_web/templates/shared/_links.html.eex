@@ -1,0 +1,12 @@
+<li><%= link "Posts", to: Routes.post_path(@conn, :index) %></li>
+<%= if @conn.assigns[:user] do %>
+  <li class="valign-wrapper">
+    <%= @conn.assigns[:user].email %>
+    <%= if @conn.assigns[:user].image do %>
+      <img src="<%= @conn.assigns[:user].image %>" alt="" class="circle responsive-img" style="margin-left: 0.3rem;" width="40">
+    <% end %>
+  </li>
+  <li><%= link "Logout", to: Routes.auth_path(@conn, :logout) %></li>
+<% else %>
+  <li><%= link "Logar", to: Routes.auth_path(@conn, :request, :google) %></li>
+<% end %>

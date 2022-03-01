@@ -1,0 +1,13 @@
+<nav class="blue">
+  <div class="nav-wrapper container">
+    <%= link "Meu Blog", to: Routes.post_path(@conn, :index), class: "brand-logo" %>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <%= render BlogWeb.SharedView, "_links.html", assigns %>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <%= render BlogWeb.SharedView, "_links.html", assigns %>
+</ul>

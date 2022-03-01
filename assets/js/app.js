@@ -16,4 +16,7 @@ import "phoenix_html"
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.fixed-action-btn');
   M.updateTextFields();
+
+  var elems = document.querySelectorAll('.sidenav');
+  M.Sidenav.init(elems, {});
 });

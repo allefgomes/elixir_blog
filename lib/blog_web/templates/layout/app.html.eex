@@ -11,25 +11,7 @@
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
-    <nav class="blue">
-      <div class="nav-wrapper container">
-        <%= link "Meu Blog", to: Routes.post_path(@conn, :index), class: "brand-logo" %>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><%= link "Posts", to: Routes.post_path(@conn, :index) %></li>
-          <%= if @conn.assigns[:user] do %>
-            <li class="valign-wrapper">
-              <%= @conn.assigns[:user].email %>
-              <%= if @conn.assigns[:user].image do %>
-                <img src="<%= @conn.assigns[:user].image %>" alt="" class="circle responsive-img" style="margin-left: 0.3rem;" width="40">
-              <% end %>
-            </li>
-            <li><%= link "Logout", to: Routes.auth_path(@conn, :logout) %></li>
-          <% else %>
-            <li><%= link "Logar", to: Routes.auth_path(@conn, :request, :google) %></li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+    <%= render BlogWeb.SharedView, "_menu.html", assigns %>
 
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
