@@ -8,12 +8,13 @@ defmodule BlogWeb.AuthControllerTest do
         first_name: nil,
         last_name: nil,
         email: "",
-        image: "",
+        image: ""
       },
       credentials: %{
         token: "something_token"
       }
     }
+
     conn =
       conn
       |> assign(:ueberauth_auth, auth)
@@ -29,7 +30,7 @@ defmodule BlogWeb.AuthControllerTest do
         first_name: "Exblog",
         last_name: "Success",
         email: "exblog@example.com",
-        image: "https://exblog/image.jpg",
+        image: "https://exblog/image.jpg"
       },
       credentials: %{
         token: "something_token"
