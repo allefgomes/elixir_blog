@@ -16,6 +16,13 @@ defmodule BlogWeb.Router do
     resources "/posts", PostController
   end
 
+  scope "/auth", BlogWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
+
   # coveralls-ignore-start
   # Enables LiveDashboard only for development
   #
