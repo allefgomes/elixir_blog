@@ -71,7 +71,8 @@ defmodule Blog.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.8", only: [:dev, :test]},
-      {:excoveralls, "~> 0.10", only: [:dev, :test]}
+      {:excoveralls, "~> 0.10", only: [:dev, :test]},
+      {:ueberauth_google, "~> 0.10"}
     ]
   end
 
